@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>网站首页</title>
+    <link rel="stylesheet" href="{% static 'index.css' %} ">
+</head>
+<body>
+
+    <h1> <a href="{% url '首页'%}">网站首页</a></h1>
+    <a href="{% url '图书' %}">图书</a>
+    <a href="{%  url '衣服' %}">衣服</a>
+    <h3>{{ title|cut:'网站' }}</h3>
+    <h3>{{ title }}</h3>
+    <div id="wrap">
+        飞利浦电风扇，咔咔就是转
+    </div>
+{{ items }}
+    <hr>
+{{ items.1 }}
+<p>for便签遍历</p>
+{% for i in items reversed%}
+    {% if forloop.first %}
+        <a style="background: gray">{{ forloop.counter }}{{ i }}</a>
+    {% else %}
+        <a >{{ forloop.counter }}{{ i }}</a>
+    {% endif %}
+{% endfor %}
+
+<p>if语句</p>
+{% if '篮球' in items %}
+<span>我爱篮球</span>
+{% elif '足球' in items %}
+<span>足球也行</span>
+{% else %}
+    <span>篮球没有，足球也没有</span>
+{% endif %}
+
+{% for u in user  %}
+    <p>欢迎{{ u }}</p>
+{% empty %}
+    <p>请先登陆</p>
+{% endfor %}
+
+{{ content }}x
+{% autoescape off%}
+    {{ content }}
+{% endautoescape %}
+
+{{ defaultText|default:"没有值" }}
+<br>
+{{ phone|truncatechars:10 }}
+</body>
+</html>
+
+
+
+
+
+
+

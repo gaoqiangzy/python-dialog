@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/index.css">
+</head>
+<body>
+ <a href="{% url '首页' %}">网站首页</a>
+     <h1><a href="{%  url '图书' %}">图书</a></h1>
+   <a href="{%  url '衣服' %}">衣服</a>
+ {% block test %}
+
+ {% endblock %}
+<P>这是一本图书</P>
+</body>
+</html>
